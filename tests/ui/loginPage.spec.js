@@ -22,7 +22,7 @@ test("Empty Login Fields", async ({ page }) => {
   page.once("dialog", async (dialog) => {
     expect(dialog.message()).toBe("Please fill out Username and Password.");
     console.log(dialog.message()); // Alert ka text dekhne ke liye
-    await dialog.accept(); // 'OK' button par click karne ke liye
+    //await dialog.accept(); // 'OK' button par click karne ke liye
   });
 
   await loginPage.login("","");
@@ -35,7 +35,7 @@ test("Wrong UserName", async ({ page }) => {
   page.once("dialog", async (dialog) => {
     expect(dialog.message()).toBe("User does not exist.");
     console.log(dialog.message()); // Alert ka text dekhne ke liye
-    await dialog.accept(); // 'OK' button par click karne ke liye
+    //await dialog.accept(); // 'OK' button par click karne ke liye
   });
 
   const login = page.locator("#login2");
@@ -55,7 +55,7 @@ test("Wrong Password", async ({ page }) => {
   page.once("dialog", async (dialog) => {
     expect(dialog.message()).toBe("Wrong password.");
     console.log(dialog.message()); // Alert ka text dekhne ke liye
-    await dialog.accept(); // 'OK' button par click karne ke liye
+    //await dialog.accept(); // 'OK' button par click karne ke liye
   });
 
   const login = page.locator("#login2");
