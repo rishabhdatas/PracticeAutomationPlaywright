@@ -2,6 +2,7 @@
 class AddAndRemove{
 
     constructor(page){
+        this.page = page;
         this.singleProduct = page.getByRole("link", { name: "Samsung galaxy s6" });
         this.addTOCart = page.getByRole("link", { name: "Add to cart" });;
         this.cartButton = page.locator("#cartur");
@@ -11,10 +12,14 @@ class AddAndRemove{
 
     async productClick(){
         await this.singleProduct.click();
+        
     }
 
     async addCart(){
-        await this.addTOCart.click();
+        await Promise.all([
+        this.page.waitForEvent('dialog'),
+        await this.addTOCart.click()
+        ]);
     }
 
     async cartButtons(){
